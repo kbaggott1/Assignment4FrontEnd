@@ -4,6 +4,7 @@ import { Message } from './Message';
 /**
  * Component that displays messages
  * @prop messages: Array of messages each containing messageId, message, and user
+ * @prop setMessages: Method to update the state of messages.
  * @returns JSX Message components
  */
 export function ChatBox({messages, setMessages}) {

@@ -15,17 +15,17 @@
 
 }
 
-.deleteButton {
+.messageButton {
     background-color: #2C3333;
     border-style: none;
-    margin-bottom: 5px;
-    color: whitesmoke
+    color: whitesmoke;
+    margin: 5px;
 }
 
-.deleteButton:hover {
+.messageButton:hover {
     cursor: pointer;
 }
 
-.deleteButton:active {
+.messageButton:active {
     cursor: wait;
 }

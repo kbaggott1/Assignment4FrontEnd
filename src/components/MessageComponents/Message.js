@@ -1,15 +1,18 @@
 import './Message.css';
 import { useState } from 'react';
 import { RefreshMessages } from './RefreshMessages';
+import { UpdateMessageForm } from './UpdateMessageForm';
 
 /**
  * Component that displays the message body and author
+ * @prop messageId: The unique id of the message
  * @prop messageBody: The message body
  * @prop username: user who sent the message
+ * @prop setMessages: Method to set the state of messages
  */
 export function Message({messageId, messageBody, username, setMessages}) {
     const [visibility, setVisibility] = useState("hidden");
-
+    const [renderUpdateForm, setRenderUpdateForm] = useState(false);
     const deleteMessage = async () => {
 
         const requestOptions = {
@@ -30,11 +33,17 @@ export function Message({messageId, messageBody, username, setMessages}) {
         }
     }
 
+    const editMessage = async () => {
+        setRenderUpdateForm(true);
+    }
+
     return <>
     <div className="messageBox" >
         <div className='messageBody' onMouseLeave={() => setVisibility("hidden")} onMouseEnter={() => setVisibility("visible")}>
             <p>{messageBody}</p>
-            <button style={{visibility: visibility}} className="deleteButton" onClick={deleteMessage}>Delete message</button>
+            {renderUpdateForm && <UpdateMessageForm setRenderUpdateForm={setRenderUpdateForm} setMessages={setMessages} messageId={messageId} oldMessage={messageBody} username={username}/>}
+            <button style={{visibility: visibility}} className="messageButton" onClick={editMessage}>Edit message</button>
+            <button style={{visibility: visibility}} className="messageButton" onClick={deleteMessage}>Delete message</button>
         </div>
         <div className='username'>
             <p>sent by: <b>{username}</b></p>

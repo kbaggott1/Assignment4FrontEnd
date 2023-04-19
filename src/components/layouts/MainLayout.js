@@ -4,7 +4,9 @@ import { Outlet } from 'react-router-dom'
 import { NavBar } from '../navigationbar/NavBar';
 
 
-
+/**
+ * A component that contains the layout for the react app.
+ */
 export function MainLayout() {
     return (
         <>

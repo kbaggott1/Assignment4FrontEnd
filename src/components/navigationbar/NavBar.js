@@ -6,9 +6,10 @@ import { Link, useResolvedPath, NavLink, useMatch } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { IoSendSharp, IoSettings } from "react-icons/io5";
 
+/**
+ * A component for the navigation bar.
+ */
 export function NavBar(){
-
-
     return (
         <>
             <nav className="navbar">

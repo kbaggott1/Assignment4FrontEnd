@@ -14,9 +14,11 @@ export function SendMessageForm({messages, setMessages}) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        console.log("before refresh: " + messages);
         if(messages < 1) {
-            RefreshMessages(setMessages);
+            messages = await RefreshMessages(setMessages);
         }
+        console.log("after refresh:");
         console.log(messages);
         console.log((messages.length > 0 ? messages.slice(-1)[0].messageId + 1 : 0))
 
@@ -35,7 +37,7 @@ export function SendMessageForm({messages, setMessages}) {
         const response = await fetch("http://localhost:1339/messages", requestOptions);
 
         if(response.status == 200) {
-            RefreshMessages(setMessages);
+            await RefreshMessages(setMessages);
         }
 
 
