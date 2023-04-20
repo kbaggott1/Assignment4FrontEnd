@@ -6,6 +6,7 @@ import { NavBar } from '../navigationbar/NavBar';
 
 /**
  * A component that contains the layout for the react app.
+ * @returns JSX layout of the react app.
  */
 export function MainLayout() {
     return (

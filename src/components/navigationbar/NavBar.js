@@ -8,6 +8,7 @@ import { IoSendSharp, IoSettings } from "react-icons/io5";
 
 /**
  * A component for the navigation bar.
+ * @returns JSX component containing the navigation bar
  */
 export function NavBar(){
     return (
